@@ -1,7 +1,10 @@
+
+# Movie Database
 Overview & requirements
 
 We have provided you with an API that returns movie data. Your task is to build an interface that allows a user to search for movies and filter the returned results. They should also be able to get additional information about any individual movie (this may require a second call to the API). 
-Requirements:
+
+- Requirements:
 
 Must haves
 A user can input a search term and see the returned movies
@@ -16,6 +19,3 @@ A user can filter the returned results in an appropriate way
 Documentation
 http://www.omdbapi.com/
 Follow the documentation at the OMDB API site to get yourself an API key and make requests to the database.
-
-Submission
-Your code should be pushed up to a github repository and the url sent over to us. Your final commit should be no later than midnight 29/07.
