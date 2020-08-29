@@ -1,7 +1,7 @@
 
 # Movie Database
 
-The movie database is an interface that allows the user to search for movies and filter the returned results. Additionally, the user can get information about any individual movie. 
+The movie database is an interface that allows the user to search for movies and filter the returned results. Additionally, the user can information for each movie shown. 
 
 The project was created to practice:
 
