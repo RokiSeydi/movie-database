@@ -1,27 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Movie extends Component {
 
-        render() {
-          const {
-            Title,
-            Year,
-            Type,
-            Poster,    
-          } = this.props.movies;
-      
-          return (
-            <div >
-              <img src={Poster} alt="Movie Poster" />
-              <section>
-                <h2>{Title}</h2>
-                <p>
-                  <span>{Year}</span>
-                  <span>{Type}</span>
-                </p>
-              </section>
-            </div>
-          );
-        }
-      }
-export default Movie;
+function Movie ({ movie }){
+return (
+<div className="result">
+<img src={movie.Poster} alt="poster"/>
+<h3>{movie.Title}</h3>
+</div>
+)
+}      
+export default Movie

@@ -1,56 +1,54 @@
-import React, { Component } from 'react';
-import Movie from "./components/movie";
-// import data from "./data/movies";
+import React, { useState } from 'react';
 import styles from "./App.module.scss";
 import Search from "./components/searchBar";
+import axios from "axios";
+import movieList from './components/movieList';
 
-// class  extends Component {
-//   state = {  }
-//   render() { 
-//     return (  );
-//   }
-// }
- 
-class App extends Component {
-state = {
-  search: "",
+function App () {
+
+const [state, setState] = useState ({
+  s: "",
   results: [],
-}
-
-handleInput = (e) => {
-  let search = e.target.value;
+  selected: {}
+});
 
 
-movieFinder = async (e) => {
+const apiurl = "http://www.omdbapi.com/?s=fresh&y=2010&apikey=2e1d8a0d";
 
-const apiurl = "http://www.omdbapi.com/?s=fresh&y=2010&apikey=2e1d8a0d"
+const search = (e) => {
+  if (e.key === "Enter"){
+    axios(apiurl + "&s=" + state.s).then(({ data }) => {
+   let results = data.Search;
 
-
-try {
-  const res = await fetch(apiurl);
-  const data = await res.json()
-  console.log(data)
-
-  this.setState(data.results)
-  } catch(err){
-    console.error(err); 
+   setState(prevState => {
+     return { ...prevState, results: results }
+   })
+    });
   }
 }
+
+const handleInput = (e) => {
+  let s = e.target.value;
+
+
+setState(prevState => {
+  return {...prevState, s: s }
+});
+
 }
 
-render () {
   return (
     <div className={styles}>
       <header>
     <h1>Movie Database</h1>
     </header>
     <main>
-      <Search handleInput={this.handleInput} movieFinder={this.movieFinder}/>
-      <Movie />
+      <Search handleInput={handleInput} search={search}/>
+      <movieList movie={state.movie}/>
     </main>
    </div>
   );
   }
-}
+
 
 export default App;

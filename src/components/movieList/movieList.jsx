@@ -1,11 +1,15 @@
-// import React from 'react';
+import React from 'react';
+import Movie from '../movie';
 
-// function movieList ({ results }) {
-//         return ( 
-            
-//             </section>
-//          );
-//     }
+function movieList ({ movieList }) {
+        return (    
+            <section className="findings">
+                {movieList.map(movie => (
+                    <Movie movie={movie}/>
+                ))}
+          </section>
+         );
+    }
 
  
-// export default movieList;
+export default movieList;
